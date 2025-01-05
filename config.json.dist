@@ -1,0 +1,5 @@
+{
+  "telegram_token": "1234567890:asldkfjoijqweiohfqwejfn",
+  "is_bot_debug": true,
+  "allowed_users": [123456789, 987654321]
+}
