@@ -24,6 +24,4 @@ build-linux: prepare
 	LD_LIBRARY_PATH=$$VOSK_PATH \
 	CGO_CPPFLAGS="-I $$VOSK_PATH" \
 	CGO_LDFLAGS="-L $$VOSK_PATH -Wl,-rpath,./binaries/$(VOSK_BINARIES)" \
-	GOARCH=amd64 \
-	GOOS=linux \
 	go build -ldflags="-w -s" -o ./TgVoiceRecognitionBot ./internal
