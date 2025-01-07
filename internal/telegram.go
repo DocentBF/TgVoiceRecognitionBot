@@ -44,6 +44,20 @@ func processUpdates(bot *tgbotapi.BotAPI, recognizer *recognizerWrapper) {
 			}
 			editSentMessage(bot, update.Message.Chat.ID, sentMessage, text)
 		}
+		switch update.Message.Text {
+		case "/start":
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Нажмите кнопку 'Пинг', чтобы проверить работу бота.")
+			msg.ReplyMarkup = tgbotapi.NewReplyKeyboard(
+				tgbotapi.NewKeyboardButtonRow(
+					tgbotapi.NewKeyboardButton("/ping"),
+				),
+			)
+			bot.Send(msg)
+
+		case "/ping":
+			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Понг! Бот работает.")
+			bot.Send(msg)
+		}
 	}
 }
 
